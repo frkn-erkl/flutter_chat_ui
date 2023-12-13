@@ -94,6 +94,7 @@ class Chat extends StatefulWidget {
     this.userAgent,
     this.useTopSafeAreaInset,
     this.videoMessageBuilder,
+   required this.verified
   });
 
   /// See [Message.audioMessageBuilder].
@@ -223,9 +224,8 @@ class Chat extends StatefulWidget {
   final VoidCallback? onAttachmentPressed;
 
   /// See [Message.onAvatarTap].
-  final void Function(types.User,  Offset position)? onAvatarTap;
- final void Function(types.User)? onUserNameTap;
-
+  final void Function(types.User, Offset position)? onAvatarTap;
+  final void Function(types.User)? onUserNameTap;
 
   /// Called when user taps on background.
   final VoidCallback? onBackgroundTap;
@@ -319,6 +319,7 @@ class Chat extends StatefulWidget {
   /// See [Message.videoMessageBuilder].
   final Widget Function(types.VideoMessage, {required int messageWidth})?
       videoMessageBuilder;
+  final List<bool> verified;
 
   @override
   State<Chat> createState() => ChatState();
@@ -353,19 +354,17 @@ class ChatState extends State<Chat> {
     super.didUpdateWidget(oldWidget);
 
     if (widget.messages.isNotEmpty) {
-      final result = calculateChatMessages(
-        widget.messages,
-        widget.user,
-        customDateHeaderText: widget.customDateHeaderText,
-        dateFormat: widget.dateFormat,
-        dateHeaderThreshold: widget.dateHeaderThreshold,
-        dateIsUtc: widget.dateIsUtc,
-        dateLocale: widget.dateLocale,
-        groupMessagesThreshold: widget.groupMessagesThreshold,
-        lastReadMessageId: widget.scrollToUnreadOptions.lastReadMessageId,
-        showUserNames: widget.showUserNames,
-        timeFormat: widget.timeFormat,
-      );
+      final result = calculateChatMessages(widget.messages, widget.user,
+          customDateHeaderText: widget.customDateHeaderText,
+          dateFormat: widget.dateFormat,
+          dateHeaderThreshold: widget.dateHeaderThreshold,
+          dateIsUtc: widget.dateIsUtc,
+          dateLocale: widget.dateLocale,
+          groupMessagesThreshold: widget.groupMessagesThreshold,
+          lastReadMessageId: widget.scrollToUnreadOptions.lastReadMessageId,
+          showUserNames: widget.showUserNames,
+          timeFormat: widget.timeFormat,
+          verified: widget.verified);
 
       _chatMessages = result[0] as List<Object>;
       _gallery = result[1] as List<PreviewImage>;
@@ -436,6 +435,7 @@ class ChatState extends State<Chat> {
                                       item,
                                       constraints,
                                       index,
+                                      widget.verified[index ?? 0],
                                     ),
                                     items: _chatMessages,
                                     keyboardDismissBehavior:
@@ -509,11 +509,10 @@ class ChatState extends State<Chat> {
     Object object,
     BoxConstraints constraints,
     int? index,
+    bool verified,
   ) {
     if (object is DateHeader) {
-      return 
-      
-      SizedBox(
+      return SizedBox(
         height: 0,
       );
       /* widget.dateHeaderBuilder?.call(object) ??
@@ -585,7 +584,7 @@ class ChatState extends State<Chat> {
           onMessageVisibilityChanged: widget.onMessageVisibilityChanged,
           onPreviewDataFetched: _onPreviewDataFetched,
           roundBorder: map['nextMessageInGroup'] == true,
-          showAvatar: true,//map['nextMessageInGroup'] == false,
+          showAvatar: true, //map['nextMessageInGroup'] == false,
           showName: true, //map['showName'] == true,
           showStatus: map['showStatus'] == true,
           showUserAvatars: widget.showUserAvatars,
@@ -594,6 +593,7 @@ class ChatState extends State<Chat> {
           usePreviewData: widget.usePreviewData,
           userAgent: widget.userAgent,
           videoMessageBuilder: widget.videoMessageBuilder,
+          verified: verified,
         );
       }
 
