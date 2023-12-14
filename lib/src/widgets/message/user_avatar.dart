@@ -76,7 +76,7 @@ class UserAvatar extends StatelessWidget {
               bottom: 0,
               child: Container(
                 width: 30, // Container genişliği
-                height: 15, // Container yüksekliği
+                height: 10, // Container yüksekliği
                 decoration: BoxDecoration(
                   color: Colors.blue, // Arka plan rengi
                   borderRadius:
