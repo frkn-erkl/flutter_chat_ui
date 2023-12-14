@@ -71,8 +71,9 @@ class UserAvatar extends StatelessWidget {
                 : null,
           ),
                    if (isnewuser)
-            Align(
-              alignment: Alignment.bottomCenter,
+            Positioned(
+              left:5,
+              bottom: 0,
               child: Container(
                 width: 30, // Container genişliği
                 height: 15, // Container yüksekliği
