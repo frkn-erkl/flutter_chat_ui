@@ -72,7 +72,7 @@ class UserAvatar extends StatelessWidget {
           ),
                    if (isnewuser)
             Positioned(
-              left:5,
+              left:1,
               bottom: 0,
               child: Container(
                 width: 30, // Container genişliği
