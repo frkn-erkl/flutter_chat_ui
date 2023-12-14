@@ -8,14 +8,15 @@ import '../state/inherited_chat_theme.dart';
 /// Renders user's avatar or initials next to a message.
 class UserAvatar extends StatelessWidget {
   /// Creates user avatar.
-  const UserAvatar({
-    super.key,
-    required this.author,
-    this.bubbleRtlAlignment,
-    this.imageHeaders,
-    this.onAvatarTap,
-   // required this.isnewuser
-  });
+  const UserAvatar(
+      {super.key,
+      required this.author,
+      this.bubbleRtlAlignment,
+      this.imageHeaders,
+      this.onAvatarTap,
+      required this.isnewuser,
+      // required this.isnewuser
+      });
 
   /// Author to show image and name initials from.
   final types.User author;
@@ -25,10 +26,11 @@ class UserAvatar extends StatelessWidget {
 
   /// See [Chat.imageHeaders].
   final Map<String, String>? imageHeaders;
+  final bool isnewuser;
 
   /// Called when user taps on an avatar.
   final void Function(types.User, Offset position)? onAvatarTap;
- // final bool isnewuser;
+  // final bool isnewuser;
 
   @override
   Widget build(BuildContext context) {
@@ -47,25 +49,49 @@ class UserAvatar extends StatelessWidget {
         onTapDown: (TapDownDetails details) {
           onAvatarTap?.call(author, details.globalPosition);
         },
-        child: CircleAvatar(
-          backgroundColor: hasImage
-              ? InheritedChatTheme.of(context)
-                  .theme
-                  .userAvatarImageBackgroundColor
-              : color,
-          backgroundImage: hasImage
-              ? NetworkImage(author.imageUrl!, headers: imageHeaders)
-              : null,
-          radius: 16,
-          child: !hasImage
-              ? Text(
-                  initials,
-                  style: InheritedChatTheme.of(context)
-                      .theme
-                      .userAvatarTextStyle,
-                )
-              : null,
-        ),
+        child: Stack(children: [
+          if (isnewuser)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: 50, // Container genişliği
+                height: 20, // Container yüksekliği
+                decoration: BoxDecoration(
+                  color: Colors.blue, // Arka plan rengi
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Köşeleri oval yapar
+                ),
+                child: Center(
+                  child: Text(
+                    'Yeni',
+                    style: TextStyle(
+                      color: Colors.white, // Yazı rengi
+                      fontSize: 12, // Yazı boyutu
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          CircleAvatar(
+            backgroundColor: hasImage
+                ? InheritedChatTheme.of(context)
+                    .theme
+                    .userAvatarImageBackgroundColor
+                : color,
+            backgroundImage: hasImage
+                ? NetworkImage(author.imageUrl!, headers: imageHeaders)
+                : null,
+            radius: 16,
+            child: !hasImage
+                ? Text(
+                    initials,
+                    style: InheritedChatTheme.of(context)
+                        .theme
+                        .userAvatarTextStyle,
+                  )
+                : null,
+          ),
+        ]),
       ),
     );
   }

@@ -18,44 +18,43 @@ import 'user_avatar.dart';
 /// a nice look on larger screens.
 class Message extends StatelessWidget {
   /// Creates a particular message from any message type.
-  const Message({
-    super.key,
-    this.audioMessageBuilder,
-    this.avatarBuilder,
-    this.bubbleBuilder,
-    this.bubbleRtlAlignment,
-    this.customMessageBuilder,
-    this.customStatusBuilder,
-    required this.emojiEnlargementBehavior,
-    this.fileMessageBuilder,
-    required this.hideBackgroundOnEmojiMessages,
-    this.imageHeaders,
-    this.imageMessageBuilder,
-    required this.message,
-    required this.messageWidth,
-    this.nameBuilder,
-    this.onAvatarTap,
-    this.onUserNameTap,
-    this.onMessageDoubleTap,
-    this.onMessageLongPress,
-    this.onMessageStatusLongPress,
-    this.onMessageStatusTap,
-    this.onMessageTap,
-    this.onMessageVisibilityChanged,
-    this.onPreviewDataFetched,
-    required this.roundBorder,
-    required this.showAvatar,
-    required this.showName,
-    required this.showStatus,
-    required this.showUserAvatars,
-    this.textMessageBuilder,
-    required this.textMessageOptions,
-    required this.usePreviewData,
-    this.userAgent,
-    this.videoMessageBuilder,
-    required this.verified
-    
-  });
+  const Message(
+      {super.key,
+      this.audioMessageBuilder,
+      this.avatarBuilder,
+      this.bubbleBuilder,
+      this.bubbleRtlAlignment,
+      this.customMessageBuilder,
+      this.customStatusBuilder,
+      required this.emojiEnlargementBehavior,
+      this.fileMessageBuilder,
+      required this.hideBackgroundOnEmojiMessages,
+      this.imageHeaders,
+      this.imageMessageBuilder,
+      required this.message,
+      required this.messageWidth,
+      this.nameBuilder,
+      this.onAvatarTap,
+      this.onUserNameTap,
+      this.onMessageDoubleTap,
+      this.onMessageLongPress,
+      this.onMessageStatusLongPress,
+      this.onMessageStatusTap,
+      this.onMessageTap,
+      this.onMessageVisibilityChanged,
+      this.onPreviewDataFetched,
+      required this.roundBorder,
+      required this.showAvatar,
+      required this.showName,
+      required this.showStatus,
+      required this.showUserAvatars,
+      this.textMessageBuilder,
+      required this.textMessageOptions,
+      required this.usePreviewData,
+      this.userAgent,
+      this.videoMessageBuilder,
+      required this.verified,
+      required this.isusernew});
 
   /// Build an audio message inside predefined bubble.
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -174,11 +173,11 @@ class Message extends StatelessWidget {
   /// See [TextMessage.userAgent].
   final String? userAgent;
 
-
   /// Build an audio message inside predefined bubble.
   final Widget Function(types.VideoMessage, {required int messageWidth})?
       videoMessageBuilder;
-    final bool verified;
+  final bool verified;
+  final bool isusernew;
 
   @override
   Widget build(BuildContext context) {
@@ -309,6 +308,7 @@ class Message extends StatelessWidget {
                   bubbleRtlAlignment: bubbleRtlAlignment,
                   imageHeaders: imageHeaders,
                   onAvatarTap: onAvatarTap,
+                  isnewuser: isusernew,
                 ),
                 SizedBox(height: 10)
               ],
