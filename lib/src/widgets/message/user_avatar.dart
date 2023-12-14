@@ -50,28 +50,7 @@ class UserAvatar extends StatelessWidget {
           onAvatarTap?.call(author, details.globalPosition);
         },
         child: Stack(children: [
-          if (isnewuser)
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: 50, // Container genişliği
-                height: 20, // Container yüksekliği
-                decoration: BoxDecoration(
-                  color: Colors.blue, // Arka plan rengi
-                  borderRadius:
-                      BorderRadius.circular(8.0), // Köşeleri oval yapar
-                ),
-                child: Center(
-                  child: Text(
-                    'Yeni',
-                    style: TextStyle(
-                      color: Colors.white, // Yazı rengi
-                      fontSize: 12, // Yazı boyutu
-                    ),
-                  ),
-                ),
-              ),
-            ),
+ 
           CircleAvatar(
             backgroundColor: hasImage
                 ? InheritedChatTheme.of(context)
@@ -91,6 +70,28 @@ class UserAvatar extends StatelessWidget {
                   )
                 : null,
           ),
+                   if (isnewuser)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: 30, // Container genişliği
+                height: 15, // Container yüksekliği
+                decoration: BoxDecoration(
+                  color: Colors.blue, // Arka plan rengi
+                  borderRadius:
+                      BorderRadius.circular(4.0), // Köşeleri oval yapar
+                ),
+                child: Center(
+                  child: Text(
+                    'Yeni',
+                    style: TextStyle(
+                      color: Colors.white, // Yazı rengi
+                      fontSize: 8, // Yazı boyutu
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ]),
       ),
     );
