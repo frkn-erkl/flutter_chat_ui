@@ -310,7 +310,7 @@ class Message extends StatelessWidget {
                   onAvatarTap: onAvatarTap,
                   isnewuser: isusernew,
                 ),
-                SizedBox(height: 10)
+                SizedBox(height: 0)
               ],
             ),
           )
