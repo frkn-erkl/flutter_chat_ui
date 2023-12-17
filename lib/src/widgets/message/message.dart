@@ -227,11 +227,11 @@ class Message extends StatelessWidget {
           ? EdgeInsetsDirectional.only(
               bottom: 4,
               end: isMobile ? query.padding.right : 0,
-              start: 4 + (isMobile ? query.padding.left : 0),
+              start: 0 + (isMobile ? query.padding.left : 0),
             )
           : EdgeInsets.only(
               bottom: 4,
-              left: 4 + (isMobile ? query.padding.left : 0),
+              left: 0 + (isMobile ? query.padding.left : 0),
               right: isMobile ? query.padding.right : 0,
             ),
       child: Row(
@@ -310,7 +310,7 @@ class Message extends StatelessWidget {
                   onAvatarTap: onAvatarTap,
                   isnewuser: isusernew,
                 ),
-                SizedBox(height: 0)
+                SizedBox(height: 2)
               ],
             ),
           )
