@@ -335,7 +335,7 @@ class DefaultChatTheme extends ChatTheme {
       height: 1.5,
     ),
     super.messageBorderRadius = 20,
-    super.messageInsetsHorizontal = 20,
+    super.messageInsetsHorizontal = 0,
     super.messageInsetsVertical = 16,
     super.primaryColor = primary,
     super.receivedEmojiMessageTextStyle = const TextStyle(fontSize: 40),
@@ -406,7 +406,7 @@ class DefaultChatTheme extends ChatTheme {
       margin: EdgeInsets.only(
         bottom: 24,
         top: 8,
-        left: 8,
+        left: 0,
         right: 8,
       ),
       textStyle: TextStyle(
