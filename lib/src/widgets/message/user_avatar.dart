@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../models/bubble_rtl_alignment.dart';
 import '../../util.dart';
@@ -163,12 +162,13 @@ class StarCirclePainter extends CustomPainter {
       Positioned(
         left: x - 15.0,
         top: y - 15.0,
-        child: SvgPicture.asset(
-          'assets/icon-x.png', // Svg dosyanızın yolunu güncelleyin
-          color: Colors.black,
+        child:
+          Image.asset(
+          'assets/icon-x.png', // PNG dosyanızın yolunu güncelleyin
           width: 30.0, // İkonun genişliği
           height: 30.0, // İkonun yüksekliği
         ),
+    
       );
     }
   }

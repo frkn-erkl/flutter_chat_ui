@@ -25,7 +25,6 @@ dependencies:
   url_launcher: ^6.1.6
   visibility_detector: ^0.3.3
   font_awesome_flutter: ^10.6.0
-  flutter_svg: ^0.22.0
 dev_dependencies:
   dart_code_metrics: ^4.21.3
   flutter_lints: ^2.0.1
