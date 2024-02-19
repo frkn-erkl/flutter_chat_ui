@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../models/bubble_rtl_alignment.dart';
 import '../../util.dart';
@@ -8,15 +11,15 @@ import '../state/inherited_chat_theme.dart';
 /// Renders user's avatar or initials next to a message.
 class UserAvatar extends StatelessWidget {
   /// Creates user avatar.
-  const UserAvatar(
-      {super.key,
-      required this.author,
-      this.bubbleRtlAlignment,
-      this.imageHeaders,
-      this.onAvatarTap,
-      required this.isnewuser,
-      // required this.isnewuser
-      });
+  const UserAvatar({
+    super.key,
+    required this.author,
+    this.bubbleRtlAlignment,
+    this.imageHeaders,
+    this.onAvatarTap,
+    required this.isnewuser,
+    // required this.isnewuser
+  });
 
   /// Author to show image and name initials from.
   final types.User author;
@@ -45,12 +48,12 @@ class UserAvatar extends StatelessWidget {
       margin: bubbleRtlAlignment == BubbleRtlAlignment.left
           ? const EdgeInsetsDirectional.only(end: 0)
           : const EdgeInsets.only(right: 0),
+      padding: EdgeInsets.zero,
       child: GestureDetector(
         onTapDown: (TapDownDetails details) {
           onAvatarTap?.call(author, details.globalPosition);
         },
         child: Stack(children: [
- 
           CircleAvatar(
             backgroundColor: hasImage
                 ? InheritedChatTheme.of(context)
@@ -70,9 +73,9 @@ class UserAvatar extends StatelessWidget {
                   )
                 : null,
           ),
-                   if (isnewuser)
+          if (isnewuser)
             Positioned(
-              left:1,
+              left: 1,
               bottom: 0,
               child: Container(
                 width: 30, // Container genişliği
@@ -93,6 +96,15 @@ class UserAvatar extends StatelessWidget {
                 ),
               ),
             ),
+          Positioned.fill(
+            child: Center(
+              child: SizedBox.expand(
+                child: CustomPaint(
+                  painter: StarCirclePainter(18, 15),
+                ),
+              ),
+            ),
+          ),
         ]),
       ),
     );
@@ -123,3 +135,46 @@ class UserAvatar extends StatelessWidget {
               ),
             )
  */
+
+class StarCirclePainter extends CustomPainter {
+  final int starCount;
+  final double radius;
+
+  StarCirclePainter(this.starCount, this.radius);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final double centerX = size.width / 2;
+    final double centerY = size.height / 2;
+    final double angleIncrement = 2 * pi / starCount;
+
+    for (int i = 0; i < starCount; i++) {
+      double x = centerX + radius * cos(i * angleIncrement);
+      double y = centerY + radius * sin(i * angleIncrement);
+
+      // Yıldız İkonu (Icon sınıfı kullanılarak)
+      canvas.drawCircle(
+        Offset(x, y),
+        20.0, // Yıldızın çapı
+        Paint()..color = Colors.yellow,
+      );
+
+      // Yıldız İkonu (SvgPicture kullanılarak)
+      Positioned(
+        left: x - 15.0,
+        top: y - 15.0,
+        child: SvgPicture.asset(
+          'assets/icon-x.png', // Svg dosyanızın yolunu güncelleyin
+          color: Colors.black,
+          width: 30.0, // İkonun genişliği
+          height: 30.0, // İkonun yüksekliği
+        ),
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
+  }
+}

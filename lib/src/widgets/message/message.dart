@@ -280,7 +280,8 @@ class Message extends StatelessWidget {
           ),
           if (currentUserIsAuthor)
             Padding(
-              padding: InheritedChatTheme.of(context).theme.statusIconPadding,
+              padding: const EdgeInsets.symmetric(horizontal: 0), 
+              //InheritedChatTheme.of(context).theme.statusIconPadding,
               child: showStatus
                   ? GestureDetector(
                       onLongPress: () =>
