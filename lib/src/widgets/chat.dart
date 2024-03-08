@@ -95,7 +95,8 @@ class Chat extends StatefulWidget {
       this.useTopSafeAreaInset,
       this.videoMessageBuilder,
       required this.verified,
-      required this.isusernew,});
+      required this.isusernew,
+      required this.starnumber});
 
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -321,6 +322,7 @@ class Chat extends StatefulWidget {
       videoMessageBuilder;
   final List<bool> verified;
   final List<bool> isusernew;
+  final List<int> starnumber;
 
   @override
   State<Chat> createState() => ChatState();
@@ -438,6 +440,7 @@ class ChatState extends State<Chat> {
                                       index,
                                       widget.verified[index ?? 0],
                                       widget.isusernew[index ?? 0],
+                                      widget.starnumber[index ?? 0]
                                     ),
                                     items: _chatMessages,
                                     keyboardDismissBehavior:
@@ -513,6 +516,7 @@ class ChatState extends State<Chat> {
     int? index,
     bool verified,
     bool isusernew,
+    int starnumber,
   ) {
     if (object is DateHeader) {
       return SizedBox(
@@ -557,6 +561,7 @@ class ChatState extends State<Chat> {
 
         messageWidget = Message(
           isusernew: isusernew,
+          starnumber: starnumber,
           audioMessageBuilder: widget.audioMessageBuilder,
           avatarBuilder: widget.avatarBuilder,
           bubbleBuilder: widget.bubbleBuilder,

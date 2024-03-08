@@ -54,7 +54,8 @@ class Message extends StatelessWidget {
       this.userAgent,
       this.videoMessageBuilder,
       required this.verified,
-      required this.isusernew});
+      required this.isusernew,
+      required this.starnumber});
 
   /// Build an audio message inside predefined bubble.
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -178,6 +179,7 @@ class Message extends StatelessWidget {
       videoMessageBuilder;
   final bool verified;
   final bool isusernew;
+  final int starnumber;
 
   @override
   Widget build(BuildContext context) {
@@ -280,7 +282,7 @@ class Message extends StatelessWidget {
           ),
           if (currentUserIsAuthor)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0), 
+              padding: const EdgeInsets.symmetric(horizontal: 0),
               //InheritedChatTheme.of(context).theme.statusIconPadding,
               child: showStatus
                   ? GestureDetector(
@@ -310,6 +312,7 @@ class Message extends StatelessWidget {
                   imageHeaders: imageHeaders,
                   onAvatarTap: onAvatarTap,
                   isnewuser: isusernew,
+                  starnumber: starnumber,
                 ),
                 SizedBox(height: 2)
               ],
