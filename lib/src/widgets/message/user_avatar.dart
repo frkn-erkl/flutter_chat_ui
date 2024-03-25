@@ -87,7 +87,7 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 11,
+            left: 10,
             top: 10,
             child: CircleAvatar(
               backgroundColor: hasImage
