@@ -55,7 +55,8 @@ class Message extends StatelessWidget {
       this.videoMessageBuilder,
       required this.verified,
       required this.isusernew,
-      required this.starnumber});
+      required this.starnumber,
+      this.clr});
 
   /// Build an audio message inside predefined bubble.
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -180,6 +181,7 @@ class Message extends StatelessWidget {
   final bool verified;
   final bool isusernew;
   final int starnumber;
+  final Color? clr;
 
   @override
   Widget build(BuildContext context) {
@@ -313,6 +315,7 @@ class Message extends StatelessWidget {
                   onAvatarTap: onAvatarTap,
                   isnewuser: isusernew,
                   starnumber: starnumber,
+                  clr: clr,
                 ),
                 SizedBox(height: 2)
               ],

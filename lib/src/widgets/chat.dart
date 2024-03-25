@@ -96,7 +96,8 @@ class Chat extends StatefulWidget {
       this.videoMessageBuilder,
       required this.verified,
       required this.isusernew,
-      required this.starnumber});
+      required this.starnumber,
+      required this.clr});
 
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -323,6 +324,7 @@ class Chat extends StatefulWidget {
   final List<bool> verified;
   final List<bool> isusernew;
   final List<int> starnumber;
+  final List<Color?> clr;
 
   @override
   State<Chat> createState() => ChatState();
@@ -435,13 +437,13 @@ class ChatState extends State<Chat> {
                                     isLastPage: widget.isLastPage,
                                     itemBuilder: (Object item, int? index) =>
                                         _messageBuilder(
-                                      item,
-                                      constraints,
-                                      index,
-                                      widget.verified[index ?? 0],
-                                      widget.isusernew[index ?? 0],
-                                      widget.starnumber[index ?? 0]
-                                    ),
+                                            item,
+                                            constraints,
+                                            index,
+                                            widget.verified[index ?? 0],
+                                            widget.isusernew[index ?? 0],
+                                            widget.starnumber[index ?? 0],
+                                            widget.clr[index ?? 0]),
                                     items: _chatMessages,
                                     keyboardDismissBehavior:
                                         widget.keyboardDismissBehavior,
@@ -517,6 +519,7 @@ class ChatState extends State<Chat> {
     bool verified,
     bool isusernew,
     int starnumber,
+    Color? clr
   ) {
     if (object is DateHeader) {
       return SizedBox(
@@ -562,6 +565,7 @@ class ChatState extends State<Chat> {
         messageWidget = Message(
           isusernew: isusernew,
           starnumber: starnumber,
+          clr: clr,
           audioMessageBuilder: widget.audioMessageBuilder,
           avatarBuilder: widget.avatarBuilder,
           bubbleBuilder: widget.bubbleBuilder,

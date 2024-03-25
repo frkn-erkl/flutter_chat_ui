@@ -10,16 +10,17 @@ import '../state/inherited_chat_theme.dart';
 /// Renders user's avatar or initials next to a message.
 class UserAvatar extends StatelessWidget {
   /// Creates user avatar.
-  const UserAvatar({
-    super.key,
-    required this.author,
-    this.bubbleRtlAlignment,
-    this.imageHeaders,
-    this.onAvatarTap,
-    required this.isnewuser,
-    required this.starnumber
-    // required this.isnewuser
-  });
+  const UserAvatar(
+      {super.key,
+      required this.author,
+      this.bubbleRtlAlignment,
+      this.imageHeaders,
+      this.onAvatarTap,
+      required this.isnewuser,
+      required this.starnumber,
+      this.clr
+      // required this.isnewuser
+      });
 
   /// Author to show image and name initials from.
   final types.User author;
@@ -31,6 +32,7 @@ class UserAvatar extends StatelessWidget {
   final Map<String, String>? imageHeaders;
   final bool isnewuser;
   final int starnumber;
+  final Color? clr;
 
   /// Called when user taps on an avatar.
   final void Function(types.User, Offset position)? onAvatarTap;
@@ -65,16 +67,19 @@ class UserAvatar extends StatelessWidget {
             child: Container(
               width: 52,
               height: 52,
-              child: Stack(
-                children: List.generate(
-                  starnumber,
-                  (index) => Positioned(
-                    left: 22 + 23 * cos(2 * pi * index / starnumber),
-                    top: 22 + 23 * sin(2 * pi * index / starnumber),
-                    child: Icon(
-                      Icons.star,
-                      size: 10.0,
-                      color: Color.fromARGB(255, 205, 187, 27),
+              child: Transform.rotate(
+                 angle: pi/(0.175*starnumber),
+                child: Stack(
+                  children: List.generate(
+                    starnumber,
+                    (index) => Positioned(
+                      left: 22 + 23 * cos(2 * pi * index / starnumber),
+                      top: 22 + 23 * sin(2 * pi * index / starnumber),
+                      child: Icon(
+                        Icons.star,
+                        size: 10.0,
+                        color: clr==null ? Color.fromARGB(255, 205, 187, 27) : clr,
+                      ),
                     ),
                   ),
                 ),
