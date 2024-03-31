@@ -68,17 +68,19 @@ class UserAvatar extends StatelessWidget {
               width: 40,
               height: 40,
               child: Transform.rotate(
-                 angle: pi/(0.175*starnumber),
+                angle: pi / (0.175 * starnumber),
                 child: Stack(
                   children: List.generate(
                     starnumber,
                     (index) => Positioned(
-                      left: 17.7 + 20 * cos(2 * pi * index / starnumber),
-                      top: 17.3 + 20 * sin(2 * pi * index / starnumber),
+                      left: 14.7 + 17 * cos(2 * pi * index / starnumber),
+                      top: 14.3 + 17 * sin(2 * pi * index / starnumber),
                       child: Icon(
                         Icons.star,
                         size: 8.0,
-                        color: clr==null ? Color.fromARGB(255, 205, 187, 27) : clr,
+                        color: clr == null
+                            ? Color.fromARGB(255, 205, 187, 27)
+                            : clr,
                       ),
                     ),
                   ),
@@ -87,8 +89,8 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
-          left: 10,
-            top: 2,
+            left: 7,
+            top: 5,
             child: CircleAvatar(
               backgroundColor: hasImage
                   ? InheritedChatTheme.of(context)
