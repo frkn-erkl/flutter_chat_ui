@@ -57,7 +57,7 @@ class UserAvatar extends StatelessWidget {
         },
         child: Stack(children: [
           Container(
-            width: 52,
+            width: 40,
             height: 40,
             color: Colors.transparent,
           ),
@@ -65,7 +65,7 @@ class UserAvatar extends StatelessWidget {
             left: 0,
             top: 0,
             child: Container(
-              width: 52,
+              width: 40,
               height: 40,
               child: Transform.rotate(
                  angle: pi/(0.175*starnumber),
