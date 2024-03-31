@@ -228,14 +228,14 @@ class Message extends StatelessWidget {
               ? Alignment.centerRight
               : Alignment.centerLeft,
       margin: bubbleRtlAlignment == BubbleRtlAlignment.left
-          ? EdgeInsetsDirectional.only(
-              bottom: 4,
-              end: isMobile ? query.padding.right : 0,
-              start: 0 + (isMobile ? query.padding.left : 0),
+            ? EdgeInsetsDirectional.only(
+              bottom: 0, //4
+              end: 0,
+              start: 0/*  + (isMobile ? query.padding.left : 0) */,
             )
           : EdgeInsets.only(
-              bottom: 4,
-              left: 0 + (isMobile ? query.padding.left : 0),
+              bottom: 0, //4
+              left: 0 /* + (isMobile ? query.padding.left : 0) */,
               right: isMobile ? query.padding.right : 0,
             ),
       child: Row(
@@ -317,7 +317,7 @@ class Message extends StatelessWidget {
                   starnumber: starnumber,
                   clr: clr,
                 ),
-                SizedBox(height: 2)
+              //  SizedBox(height: 2)
               ],
             ),
           )
