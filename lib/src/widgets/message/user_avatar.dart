@@ -58,7 +58,7 @@ class UserAvatar extends StatelessWidget {
         child: Stack(children: [
           Container(
             width: 52,
-            height: 52,
+            height: 40,
             color: Colors.transparent,
           ),
           Positioned(
@@ -66,7 +66,7 @@ class UserAvatar extends StatelessWidget {
             top: 0,
             child: Container(
               width: 52,
-              height: 52,
+              height: 40,
               child: Transform.rotate(
                  angle: pi/(0.175*starnumber),
                 child: Stack(
@@ -87,8 +87,8 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 15,
-            top: 7,
+          left: 10,
+            top: 2,
             child: CircleAvatar(
               backgroundColor: hasImage
                   ? InheritedChatTheme.of(context)
