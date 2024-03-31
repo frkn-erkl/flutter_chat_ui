@@ -73,8 +73,8 @@ class UserAvatar extends StatelessWidget {
                   children: List.generate(
                     starnumber,
                     (index) => Positioned(
-                      left: 22 + 23 * cos(2 * pi * index / starnumber),
-                      top: 22 + 23 * sin(2 * pi * index / starnumber),
+                      left: 20.7 + 20 * cos(2 * pi * index / starnumber),
+                      top: 20.3 + 20 * sin(2 * pi * index / starnumber),
                       child: Icon(
                         Icons.star,
                         size: 10.0,
