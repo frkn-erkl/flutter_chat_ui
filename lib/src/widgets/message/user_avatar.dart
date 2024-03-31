@@ -73,11 +73,11 @@ class UserAvatar extends StatelessWidget {
                   children: List.generate(
                     starnumber,
                     (index) => Positioned(
-                      left: 20.7 + 20 * cos(2 * pi * index / starnumber),
-                      top: 20.3 + 20 * sin(2 * pi * index / starnumber),
+                      left: 17.7 + 20 * cos(2 * pi * index / starnumber),
+                      top: 17.3 + 20 * sin(2 * pi * index / starnumber),
                       child: Icon(
                         Icons.star,
-                        size: 10.0,
+                        size: 8.0,
                         color: clr==null ? Color.fromARGB(255, 205, 187, 27) : clr,
                       ),
                     ),
@@ -87,8 +87,8 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 10,
-            top: 10,
+            left: 15,
+            top: 7,
             child: CircleAvatar(
               backgroundColor: hasImage
                   ? InheritedChatTheme.of(context)
