@@ -89,7 +89,7 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 7,
+            left: 9,
             top: 5,
             child: CircleAvatar(
               backgroundColor: hasImage
@@ -100,7 +100,7 @@ class UserAvatar extends StatelessWidget {
               backgroundImage: hasImage
                   ? NetworkImage(author.imageUrl!, headers: imageHeaders)
                   : null,
-              radius: 16,
+              radius: 14,
               child: !hasImage
                   ? Text(
                       initials,
