@@ -89,8 +89,8 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 11,
-            top: 5,
+            left: 11.5,
+            top: 5.5,
             child: CircleAvatar(
               backgroundColor: hasImage
                   ? InheritedChatTheme.of(context)
