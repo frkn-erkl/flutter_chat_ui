@@ -57,24 +57,24 @@ class UserAvatar extends StatelessWidget {
         },
         child: Stack(children: [
           Container(
-            width: 45,
-            height: 42,
+            width: 41,
+            height: 45,
             color: Colors.transparent,
           ),
           Positioned(
             left: 0,
             top: 0,
             child: Container(
-              width: 45,
-              height: 42,
+              width: 41,
+              height: 45,
               child: Transform.rotate(
                 angle: pi / (0.175 * starnumber),
                 child: Stack(
                   children: List.generate(
                     starnumber,
                     (index) => Positioned(
-                      left: 14.3 + 17 * cos(2 * pi * index / starnumber),
-                      top: 14.3 + 17 * sin(2 * pi * index / starnumber),
+                      left:13.3 + 16 * cos(2 * pi * index / starnumber),
+                      top: 13.3 + 16 * sin(2 * pi * index / starnumber),
                       child: Icon(
                         Icons.star,
                         size: 8.0,
@@ -89,7 +89,7 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 9,
+            left: 11,
             top: 5,
             child: CircleAvatar(
               backgroundColor: hasImage
@@ -100,7 +100,7 @@ class UserAvatar extends StatelessWidget {
               backgroundImage: hasImage
                   ? NetworkImage(author.imageUrl!, headers: imageHeaders)
                   : null,
-              radius: 14,
+              radius: 12.5,
               child: !hasImage
                   ? Text(
                       initials,
