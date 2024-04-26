@@ -54,3 +54,6 @@ flutter:
     - packages/flutter_chat_ui/assets/3.0x/icon-error.png
     - packages/flutter_chat_ui/assets/3.0x/icon-seen.png
     - packages/flutter_chat_ui/assets/3.0x/icon-send.png
+    - packages/flutter_chat_ui/assets/emotes/emoticon/
+    - packages/flutter_chat_ui/assets/emotes/food/
+    - packages/flutter_chat_ui/assets/emotes/sticker_animasyon/
