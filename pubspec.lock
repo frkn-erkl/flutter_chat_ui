@@ -194,8 +194,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "4138fcaa025870fcfb3ca38ebe2e826055c33ff2"
-      resolved-ref: "4138fcaa025870fcfb3ca38ebe2e826055c33ff2"
+      ref: e23e471cd5bbf71f6b146dc0e86db00d8c059ae6
+      resolved-ref: e23e471cd5bbf71f6b146dc0e86db00d8c059ae6
       url: "https://github.com/frkn-erkl/flutter_parsed_text.git"
     source: git
     version: "2.2.1"
