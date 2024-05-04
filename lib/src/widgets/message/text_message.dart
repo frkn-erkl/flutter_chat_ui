@@ -185,7 +185,7 @@ class TextMessage extends StatelessWidget {
 
 /// Widget to reuse the markdown capabilities, e.g., for previews.
 class TextMessageText extends StatelessWidget {
-  const TextMessageText({
+   TextMessageText({
     super.key,
     this.bodyLinkTextStyle,
     required this.bodyTextStyle,
@@ -220,7 +220,7 @@ class TextMessageText extends StatelessWidget {
 
   /// Text that is shown as markdown.
   final String text;
-
+String imagepattern = r"æ.*\s$";
   @override
   Widget build(BuildContext context) => ParsedText(
         parse: [
@@ -250,6 +250,44 @@ class TextMessageText extends StatelessWidget {
                   decoration: TextDecoration.underline,
                 ),
           ),
+/* 
+             MatchText(
+      renderWidget: ({required pattern, required text}) {
+          return /* Image.network(
+            text,
+            fit: BoxFit.cover,
+          ) */ Image(
+            image: AssetImage(
+               'assets/emotes/emoticon/3.png'),
+            width: 16,
+            height: 16,
+          );
+        
+       },
+            pattern: imagepattern,
+            style: bodyLinkTextStyle ??
+                bodyTextStyle.copyWith(
+                  decoration: TextDecoration.underline,
+                ),
+          ), */
+          MatchText(
+  renderWidget: ({required pattern, required text}) {
+    // Öncelikle, metni bir dosya yolu olarak kullanmak üzere düzenleyelim.
+    // Örneğin, tüm metinler 'assets/images/' klasörü altında varsayalım.
+    String imagePath = 'assets/images/$text.png';  // '.png' varsayılan bir uzantıdır, ihtiyaca göre değiştirilebilir.
+    
+    return Image(
+      image: AssetImage(imagePath),
+      width: 16,
+      height: 16,
+    );
+  },
+  pattern: r"æ.*\s$",
+  style: bodyLinkTextStyle ?? 
+      bodyTextStyle.copyWith(
+        decoration: TextDecoration.underline,
+      ),
+),
           MatchText(
             onTap: (urlText) async {
               final protocolIdentifierRegex = RegExp(

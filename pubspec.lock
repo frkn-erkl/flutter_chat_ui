@@ -193,10 +193,11 @@ packages:
   flutter_parsed_text:
     dependency: "direct main"
     description:
-      name: flutter_parsed_text
-      sha256: "529cf5793b7acdf16ee0f97b158d0d4ba0bf06e7121ef180abe1a5b59e32c1e2"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: "366c7a8d87415186d5db8cb59232a24429550ae7"
+      resolved-ref: "366c7a8d87415186d5db8cb59232a24429550ae7"
+      url: "https://github.com/frkn-erkl/flutter_parsed_text.git"
+    source: git
     version: "2.2.1"
   flutter_test:
     dependency: "direct dev"
