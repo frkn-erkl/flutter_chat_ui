@@ -277,7 +277,7 @@ String imagepattern = r"æ.*\s$";
     String imagePath = 'assets/images/$text.png';  // '.png' varsayılan bir uzantıdır, ihtiyaca göre değiştirilebilir.
     
     return Image(
-      image: AssetImage(text),
+      image: AssetImage(text.substring(1, text.length - 1)),
       width: 16,
       height: 16,
     );
