@@ -147,7 +147,7 @@
     },
     {
       "name": "flutter_parsed_text",
-      "rootUri": "file:///Users/furkanerkul/.pub-cache/git/flutter_parsed_text-366c7a8d87415186d5db8cb59232a24429550ae7/",
+      "rootUri": "file:///Users/furkanerkul/.pub-cache/git/flutter_parsed_text-4138fcaa025870fcfb3ca38ebe2e826055c33ff2/",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -434,7 +434,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2024-05-04T05:58:38.383008Z",
+  "generated": "2024-05-04T08:25:51.493162Z",
   "generator": "pub",
   "generatorVersion": "3.0.2"
 }

@@ -20,7 +20,7 @@ dependencies:
   flutter_parsed_text:  
    git:
     url: https://github.com/frkn-erkl/flutter_parsed_text.git
-    ref: 366c7a8d87415186d5db8cb59232a24429550ae7
+    ref: 4138fcaa025870fcfb3ca38ebe2e826055c33ff2
   intl: ^0.17.0
   meta: ^1.8.0
   photo_view: ^0.14.0

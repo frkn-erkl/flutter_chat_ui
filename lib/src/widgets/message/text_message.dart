@@ -282,7 +282,7 @@ String imagepattern = r"æ.*\s$";
       height: 16,
     );
   },
-  pattern: r"æ.*\s$",
+  pattern: r'æ.*æ$',
   style: bodyLinkTextStyle ?? 
       bodyTextStyle.copyWith(
         decoration: TextDecoration.underline,
