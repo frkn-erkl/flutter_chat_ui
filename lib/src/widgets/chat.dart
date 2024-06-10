@@ -559,8 +559,8 @@ class ChatState extends State<Chat> {
       } else {
         final messageWidth =
             widget.showUserAvatars && message.author.id != widget.user.id
-                ? min(constraints.maxWidth * 0.72, 440).floor()
-                : min(constraints.maxWidth * 0.78, 440).floor();
+                ? min(constraints.maxWidth * 0.72, 600).floor()
+                : min(constraints.maxWidth * 0.78, 600).floor();
 
         messageWidget = Message(
           isusernew: isusernew,
