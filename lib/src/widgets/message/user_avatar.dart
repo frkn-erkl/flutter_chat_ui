@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../models/bubble_rtl_alignment.dart';
 import '../../util.dart';
@@ -19,6 +20,7 @@ class UserAvatar extends StatelessWidget {
       required this.isnewuser,
       required this.isgendermale,
       required this.starnumber,
+      required this.isverified,
       this.clr
       // required this.isnewuser
       });
@@ -32,6 +34,7 @@ class UserAvatar extends StatelessWidget {
   /// See [Chat.imageHeaders].
   final Map<String, String>? imageHeaders;
   final bool isnewuser;
+   final bool isverified;
   final bool isgendermale;
   final int starnumber;
   final Color? clr;
@@ -91,17 +94,29 @@ class UserAvatar extends StatelessWidget {
             ),
           ),
           Positioned(
+            left: 10.75,
+            top: 4.75,
+            child: 
+          Container(
+  width: 26.5,
+  height: 26.5,
+  decoration: BoxDecoration(
+    color: isgendermale
+                  ? Colors.blue
+                  : Colors.pink,
+    shape: BoxShape.circle,
+  ),
+),),
+          Positioned(
             left: 11.5,
             top: 5.5,
             child: CircleAvatar(
-             /*  backgroundColor: hasImage
+              backgroundColor: hasImage
                   ? InheritedChatTheme.of(context)
                       .theme
                       .userAvatarImageBackgroundColor
-                  : color, */
-                   backgroundColor: isgendermale
-                  ? Colors.blue
-                  : Colors.pink,
+                  : color,
+                  
               backgroundImage: hasImage
                   ? NetworkImage(author.imageUrl!, headers: imageHeaders)
                   : null,
@@ -139,6 +154,32 @@ class UserAvatar extends StatelessWidget {
                 ),
               ),
             ),
+
+            if (isverified)
+              Positioned(
+                                       right: 0,
+              bottom: 5,
+                                    child: Container(
+                                      width: 14.0,
+                                      height: 18.0,
+                                      child: Stack(children: [
+                                      Center(
+                                        child: Icon(
+                                          FontAwesomeIcons.certificate,
+                                          color: Colors.blue,
+                                          size: 12,
+                                        ),
+                                      ),
+                                      Center(
+                                        child: Icon(
+                                          FontAwesomeIcons.check,
+                                          color: Colors.white,
+                                          size: 7,
+                                        ),
+                                      ),
+                                    ]),
+                                    ),
+                                  ),
         ]),
       ),
     );

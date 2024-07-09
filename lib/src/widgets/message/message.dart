@@ -57,6 +57,7 @@ class Message extends StatelessWidget {
       required this.isusernew,
       required this.isgendermale,
       required this.starnumber,
+      required this.isverified,
       this.clr});
 
   /// Build an audio message inside predefined bubble.
@@ -183,6 +184,7 @@ class Message extends StatelessWidget {
   final bool isusernew;
   final bool isgendermale;
   final int starnumber;
+  final bool isverified;
   final Color? clr;
 
   @override
@@ -318,6 +320,7 @@ class Message extends StatelessWidget {
                   isnewuser: isusernew,
                   isgendermale: isgendermale,
                   starnumber: starnumber,
+                  isverified: isverified,
                   clr: clr,
                 ),
                 //  SizedBox(height: 2)
