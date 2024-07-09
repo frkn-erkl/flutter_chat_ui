@@ -97,7 +97,7 @@ class Chat extends StatefulWidget {
       required this.verified,
       required this.isusernew,
       required this.starnumber,
-      required this.clr});
+      required this.clr, required this.isgendermale,});
 
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})?
@@ -323,6 +323,7 @@ class Chat extends StatefulWidget {
       videoMessageBuilder;
   final List<bool> verified;
   final List<bool> isusernew;
+  final List<bool> isgendermale;
   final List<int> starnumber;
   final List<Color?> clr;
 
@@ -442,6 +443,7 @@ class ChatState extends State<Chat> {
                                             index,
                                             widget.verified[index ?? 0],
                                             widget.isusernew[index ?? 0],
+                                            widget.isgendermale[index ?? 0],
                                             widget.starnumber[index ?? 0],
                                             widget.clr[index ?? 0]),
                                     items: _chatMessages,
@@ -513,14 +515,14 @@ class ChatState extends State<Chat> {
 
   /// We need the index for auto scrolling because it will scroll until it reaches an index higher or equal that what it is scrolling towards. Index will be null for removed messages. Can just set to -1 for auto scroll.
   Widget _messageBuilder(
-    Object object,
-    BoxConstraints constraints,
-    int? index,
-    bool verified,
-    bool isusernew,
-    int starnumber,
-    Color? clr
-  ) {
+      Object object,
+      BoxConstraints constraints,
+      int? index,
+      bool verified,
+      bool isusernew,
+      bool isgendermale,
+      int starnumber,
+      Color? clr) {
     if (object is DateHeader) {
       return SizedBox(
         height: 0,
@@ -607,6 +609,7 @@ class ChatState extends State<Chat> {
           userAgent: widget.userAgent,
           videoMessageBuilder: widget.videoMessageBuilder,
           verified: verified,
+          isgendermale: isgendermale,
         );
       }
 

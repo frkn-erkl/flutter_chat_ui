@@ -17,6 +17,7 @@ class UserAvatar extends StatelessWidget {
       this.imageHeaders,
       this.onAvatarTap,
       required this.isnewuser,
+      required this.isgendermale,
       required this.starnumber,
       this.clr
       // required this.isnewuser
@@ -31,6 +32,7 @@ class UserAvatar extends StatelessWidget {
   /// See [Chat.imageHeaders].
   final Map<String, String>? imageHeaders;
   final bool isnewuser;
+  final bool isgendermale;
   final int starnumber;
   final Color? clr;
 
@@ -73,7 +75,7 @@ class UserAvatar extends StatelessWidget {
                   children: List.generate(
                     starnumber,
                     (index) => Positioned(
-                      left:13.3 + 16 * cos(2 * pi * index / starnumber),
+                      left: 13.3 + 16 * cos(2 * pi * index / starnumber),
                       top: 13.3 + 16 * sin(2 * pi * index / starnumber),
                       child: Icon(
                         Icons.star,
@@ -92,11 +94,14 @@ class UserAvatar extends StatelessWidget {
             left: 11.5,
             top: 5.5,
             child: CircleAvatar(
-              backgroundColor: hasImage
+             /*  backgroundColor: hasImage
                   ? InheritedChatTheme.of(context)
                       .theme
                       .userAvatarImageBackgroundColor
-                  : color,
+                  : color, */
+                   backgroundColor: isgendermale
+                  ? Colors.blue
+                  : Colors.pink,
               backgroundImage: hasImage
                   ? NetworkImage(author.imageUrl!, headers: imageHeaders)
                   : null,
@@ -114,7 +119,7 @@ class UserAvatar extends StatelessWidget {
           if (isnewuser)
             Positioned(
               left: 9,
-              bottom: 0,
+              bottom: 5,
               child: Container(
                 width: 30, // Container genişliği
                 height: 10, // Container yüksekliği

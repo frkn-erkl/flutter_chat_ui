@@ -55,6 +55,7 @@ class Message extends StatelessWidget {
       this.videoMessageBuilder,
       required this.verified,
       required this.isusernew,
+      required this.isgendermale,
       required this.starnumber,
       this.clr});
 
@@ -180,6 +181,7 @@ class Message extends StatelessWidget {
       videoMessageBuilder;
   final bool verified;
   final bool isusernew;
+  final bool isgendermale;
   final int starnumber;
   final Color? clr;
 
@@ -228,10 +230,10 @@ class Message extends StatelessWidget {
               ? Alignment.centerRight
               : Alignment.centerLeft,
       margin: bubbleRtlAlignment == BubbleRtlAlignment.left
-            ? EdgeInsetsDirectional.only(
+          ? EdgeInsetsDirectional.only(
               bottom: 0, //4
               end: 0,
-              start: 0/*  + (isMobile ? query.padding.left : 0) */,
+              start: 0 /*  + (isMobile ? query.padding.left : 0) */,
             )
           : EdgeInsets.only(
               bottom: 0, //4
@@ -314,10 +316,11 @@ class Message extends StatelessWidget {
                   imageHeaders: imageHeaders,
                   onAvatarTap: onAvatarTap,
                   isnewuser: isusernew,
+                  isgendermale: isgendermale,
                   starnumber: starnumber,
                   clr: clr,
                 ),
-              //  SizedBox(height: 2)
+                //  SizedBox(height: 2)
               ],
             ),
           )
