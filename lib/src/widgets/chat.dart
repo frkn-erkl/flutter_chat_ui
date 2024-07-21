@@ -449,7 +449,7 @@ class ChatState extends State<Chat> {
                                             widget.isusernew[index ?? 0],
                                             widget.isgendermale[index ?? 0],
                                             widget.isverified[index ?? 0],
-                                            widget.starnumber[index ?? 15],
+                                            widget.starnumber[index ?? 0],
                                             widget.clr[index ?? 0]),
                                     items: _chatMessages,
                                     keyboardDismissBehavior:
