@@ -211,7 +211,7 @@ class UserAvatar extends StatelessWidget {
             )
  */
 
-class StarCircle extends StatelessWidget {
+/* class StarCircle extends StatelessWidget {
   final int numberOfStars = 8;
 
   @override
@@ -236,3 +236,4 @@ class StarCircle extends StatelessWidget {
     );
   }
 }
+ */
