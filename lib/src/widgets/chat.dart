@@ -67,7 +67,7 @@ class Chat extends StatefulWidget {
     this.nameBuilder,
     this.onAttachmentPressed,
     this.onAvatarTap,
-    this.onUserNameTap,
+    required this.onUserNameTap,
     this.onBackgroundTap,
     this.onEndReached,
     this.onEndReachedThreshold,
@@ -230,7 +230,7 @@ class Chat extends StatefulWidget {
 
   /// See [Message.onAvatarTap].
   final void Function(types.User, Offset position)? onAvatarTap;
-  final void Function(types.User)? onUserNameTap;
+  final void Function(types.User) onUserNameTap;
 
   /// Called when user taps on background.
   final VoidCallback? onBackgroundTap;

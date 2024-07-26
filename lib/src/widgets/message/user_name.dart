@@ -14,13 +14,13 @@ class UserName extends StatelessWidget {
     super.key,
     required this.author,
     required this.verified,
-    this.onUserNameTap,
+    required this.onUserNameTap,
   });
 
   /// Author to show name from.
   final types.User author;
   final bool verified;
-  final void Function(types.User)? onUserNameTap;
+  final void Function(types.User) onUserNameTap;
 
   @override
   Widget build(BuildContext context) {

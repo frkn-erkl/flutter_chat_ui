@@ -35,7 +35,7 @@ class Message extends StatelessWidget {
       required this.messageWidth,
       this.nameBuilder,
       this.onAvatarTap,
-      this.onUserNameTap,
+      required this.onUserNameTap,
       this.onMessageDoubleTap,
       this.onMessageLongPress,
       this.onMessageStatusLongPress,
@@ -121,7 +121,7 @@ class Message extends StatelessWidget {
 
   /// See [UserAvatar.onAvatarTap].
   final void Function(types.User, Offset position)? onAvatarTap;
-  final void Function(types.User)? onUserNameTap;
+  final void Function(types.User) onUserNameTap;
 
   /// Called when user double taps on any message.
   final void Function(BuildContext context, types.Message)? onMessageDoubleTap;

@@ -27,9 +27,9 @@ class TextMessage extends StatelessWidget {
     required this.usePreviewData,
     required this.verified,
     this.userAgent,
-    this.onUserNameTap,
+    required this.onUserNameTap,
   });
-  final void Function(types.User)? onUserNameTap;
+  final void Function(types.User) onUserNameTap;
 
   /// See [Message.emojiEnlargementBehavior].
   final EmojiEnlargementBehavior emojiEnlargementBehavior;
