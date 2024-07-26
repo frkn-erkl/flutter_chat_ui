@@ -171,7 +171,7 @@ class Chat extends StatefulWidget {
   /// See [Message.emojiEnlargementBehavior].
   final EmojiEnlargementBehavior emojiEnlargementBehavior;
 
-  /// Allows you to change what the user sees when there are no messages.
+  /// Allows you to change what the user sees when there are .
   /// `emptyChatPlaceholder` and `emptyChatPlaceholderTextStyle` are ignored
   /// in this case.
   final Widget? emptyState;
